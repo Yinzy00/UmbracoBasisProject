@@ -1,0 +1,70 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+
+    <title>Softy Pinko - Bootstrap 4.0 Theme</title>
+    <!--
+    SOFTY PINKO
+    https://templatemo.com/tm-535-softy-pinko
+    -->
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
+    <link rel="stylesheet" href="css/templatemo-softy-pinko.css">
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    @await Html.PartialAsync("Navbar");
+    <!-- ***** Header Area End ***** -->
+    @*CONTENT*@
+
+    @RenderBody();
+
+    @*END CONTENT*@
+
+    <!-- ***** Footer Start ***** -->
+    @await Html.PartialAsync("Footer");
+    <!-- ***** Footer End ***** -->
+    <!-- jQuery -->
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="scripts/popper.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="scripts/scrollreveal.min.js"></script>
+    <script src="scripts/waypoints.min.js"></script>
+    <script src="scripts/jquery.counterup.min.js"></script>
+    <script src="scripts/imgfix.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="scripts/custom.js"></script>
+
+</body>
+</html>
