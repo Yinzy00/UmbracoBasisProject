@@ -1,6 +1,11 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using BasisProjectUmbraco.ViewModels;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "Master.cshtml";
 }
+@Html.GetBlockListHtml(Model.BlockList)
+
+
+@*@await Html.PartialAsync("ContactForm", new ContactFormViewModel())*@

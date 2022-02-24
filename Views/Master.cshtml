@@ -21,11 +21,11 @@
     https://templatemo.com/tm-535-softy-pinko
     -->
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
 
-    <link rel="stylesheet" href="css/templatemo-softy-pinko.css">
+    <link rel="stylesheet" href="/css/templatemo-softy-pinko.css">
 
 </head>
 
@@ -39,32 +39,34 @@
             <div></div>
         </div>
     </div>
-    @await Html.PartialAsync("Navbar");
+    @await Html.PartialAsync("Navbar")
     <!-- ***** Header Area End ***** -->
     @*CONTENT*@
 
-    @RenderBody();
+    @RenderBody()
 
     @*END CONTENT*@
 
     <!-- ***** Footer Start ***** -->
-    @await Html.PartialAsync("Footer");
+    @await Html.PartialAsync("Footer")
     <!-- ***** Footer End ***** -->
     <!-- jQuery -->
-    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="/scripts/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->
-    <script src="scripts/popper.js"></script>
-    <script src="scripts/bootstrap.min.js"></script>
+    <script src="/scripts/popper.js"></script>
+    <script src="/scripts/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="scripts/scrollreveal.min.js"></script>
-    <script src="scripts/waypoints.min.js"></script>
-    <script src="scripts/jquery.counterup.min.js"></script>
-    <script src="scripts/imgfix.min.js"></script>
+    <script src="/scripts/scrollreveal.min.js"></script>
+    <script src="/scripts/waypoints.min.js"></script>
+    <script src="/scripts/jquery.counterup.min.js"></script>
+    <script src="/scripts/imgfix.min.js"></script>
 
     <!-- Global Init -->
-    <script src="scripts/custom.js"></script>
+    <script src="/scripts/custom.js"></script>
 
+    <script src="/scripts/aspnet-validation.min"></script>
+    
 </body>
 </html>

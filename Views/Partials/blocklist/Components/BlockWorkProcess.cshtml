@@ -1,0 +1,48 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem<BlockWorkProcess>>
+
+<section class="mini" id="work-process">
+    <div class="mini-content">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-3 col-lg-6">
+                    <div class="info">
+                        <h1>
+                            @Model.Content.Title
+                        </h1>
+                        @Model.Content.Body
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @{
+                    var colLg = ((12 / Model.Content.Cards.Count()) >= 2 ? "col-lg-" + (12 / Model.Content.Cards.Count()).ToString() : "col-lg-2");
+                    var colMd = ((12 / Model.Content.Cards.Count()) >= 3 ? "col-md-" + (12 / Model.Content.Cards.Count()).ToString() : "col-md-3");
+                    var colsm = ((12 / Model.Content.Cards.Count()) >= 6 ? "col-sm-" + (12 / Model.Content.Cards.Count()).ToString() : "col-sm-6");
+                    var col = ((12 / Model.Content.Cards.Count()) >= 6 ? "col-" + (12 / Model.Content.Cards.Count()).ToString() : "col-6");
+                    foreach (var card in Model.Content.Cards)
+                    {
+                        var cardContent = (BlockWorkProcessCard)card.Content;
+                        <div class="@colLg @colMd @colsm @col">
+                            <a href="#" class="mini-box">
+                                @{
+                                    var img = cardContent.Image;
+                                    if (img != null)
+                                    {
+                                        <img src="@img.MediaUrl()" class="rounded img-fluid d-block mx-auto" />
+                                    }
+                                }
+                                <strong>
+                                    @cardContent.Title
+                                </strong>
+                                <span>
+                                    @cardContent.Body
+                                </span>
+                            </a>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>

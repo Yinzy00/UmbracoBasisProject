@@ -1,0 +1,40 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks;
+@using Umbraco.Cms.Core.Models;
+@using BasisProjectUmbraco.ViewModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem<BlockForm>>
+<!-- ***** Contact Us Start ***** -->
+<section class="section colored" id="contact-us">
+    <div class="container">
+        <!-- ***** Section Title Start ***** -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center-heading">
+                    <h2 class="section-title">
+                        @Model.Content.Title
+                    </h2>
+                </div>
+            </div>
+            <div class="offset-lg-3 col-lg-6">
+                <div class="center-text">
+                    @Model.Content.Body
+                </div>
+            </div>
+        </div>
+        <!-- ***** Section Title End ***** -->
+        <div class="row">
+            <!-- ***** Contact Text Start ***** -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <h5 class="margin-bottom-30">
+                    @Model.Content.SideTitle
+                </h5>
+                <div class="contact-text">
+                    @Model.Content.SideBody
+                </div>
+            </div>
+            <!-- ***** Contact Text End ***** -->
+            <!-- ***** Contact Form Start ***** -->
+            @await Html.PartialAsync("ContactForm", new ContactFormViewModel())
+            <!-- ***** Contact Form End ***** -->
+        </div>
+    </div>
+</section>

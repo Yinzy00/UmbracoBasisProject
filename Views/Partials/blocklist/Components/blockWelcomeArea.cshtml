@@ -1,0 +1,23 @@
+﻿@using Umbraco.Cms.Core.Models;
+@using Umbraco.Cms.Core.Models.Blocks;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem<BlockWelcomeArea>>
+@{
+    Link link = Model.Content.Link;
+}
+<div class="welcome-area" id="welcome">
+    <div class="header-text">
+        <div class="container">
+            <div class="row">
+                <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+                    <h1>
+                        @Model.Content.Title
+                    </h1>                    
+                    @Model.Content.Body
+                    <a href="@link.Url" class="main-button-slider">
+                        @link.Name
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks;
+@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem<BlockCounter>>
+@{
+    var data = Model.Content.Data;
+    var colLg = ((12 / data.Count()) >= 3 ? "col-lg-" + (12 / data.Count()).ToString() : "col-lg-3");
+    var colMd = ((12 / data.Count()) >= 6 ? "col-md-" + (12 / data.Count()).ToString() : "col-md-3");
+    var colsm = ((12 / data.Count()) >= 12 ? "col-sm-" + (12 / data.Count()).ToString() : "col-sm-6");
+}
+<section class="counter">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                @{
+                    foreach (var item in data)
+                    {
+                        var itemData = (BlockCounterData)item.Content;
+                        <div class="@colLg @colMd @colsm">
+                            <div class="count-item @(data[data.Count() - 1] != item ? "decoration-top" : "")">
+                                <strong>
+                                    @itemData.Number
+                                </strong>
+                                <span>
+                                    @itemData.Text
+                                </span>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>

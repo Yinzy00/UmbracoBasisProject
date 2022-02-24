@@ -1,4 +1,5 @@
 using System;
+using BasisProjectUmbraco.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -45,7 +46,6 @@ namespace BasisProjectUmbraco
                 .AddComposers()
                 .Build();
 #pragma warning restore IDE0022 // Use expression body for methods
-
         }
 
         /// <summary>
