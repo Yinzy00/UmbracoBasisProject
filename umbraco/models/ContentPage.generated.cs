@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>ContentPage</summary>
 	[PublishedModel("contentPage")]
-	public partial class ContentPage : PublishedContentModel
+	public partial class ContentPage : PublishedContentModel, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -56,5 +56,51 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("blockList")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel BlockList => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "blockList");
+
+		///<summary>
+		/// Keywords Meta Tag
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("keywordsMetaTag")]
+		public virtual string KeywordsMetaTag => global::Umbraco.Cms.Web.Common.PublishedModels.SEO.GetKeywordsMetaTag(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.SEO.GetPageTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// seoMetaDescription
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("seoMetaDescription")]
+		public virtual string SeoMetaDescription => global::Umbraco.Cms.Web.Common.PublishedModels.SEO.GetSeoMetaDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// SEO PREVIEW
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("sEOPREVIEW")]
+		public virtual object SEopreview => global::Umbraco.Cms.Web.Common.PublishedModels.SEO.GetSEopreview(this, _publishedValueFallback);
+
+		///<summary>
+		/// Sitemap frequency
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
+		[ImplementPropertyType("sitemapFrequency")]
+		public virtual global::Limbo.Umbraco.Seo.Models.Sitemaps.SitemapChangeFrequency SitemapFrequency => global::Umbraco.Cms.Web.Common.PublishedModels.SEO.GetSitemapFrequency(this, _publishedValueFallback);
+
+		///<summary>
+		/// SitemapPriority
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
+		[ImplementPropertyType("sitemapPriority")]
+		public virtual global::System.Nullable<float> SitemapPriority => global::Umbraco.Cms.Web.Common.PublishedModels.SEO.GetSitemapPriority(this, _publishedValueFallback);
 	}
 }
