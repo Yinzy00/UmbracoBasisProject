@@ -10,7 +10,7 @@
                         var img = Model.Content.Image;
                         if (img != null)
                         {
-                            <img src="@img.MediaUrl()" class="rounded img-fluid d-block mx-auto" alt="@img.Value("alt")" />
+                            <img src="@img.MediaUrl()" class="rounded img-fluid d-block mx-auto"  alt="@(!string.IsNullOrEmpty(Model.Content.ImageAlt) ? Model.Content.ImageAlt : "")" />
                         }
                     }
                 </div>
@@ -32,7 +32,7 @@
                         var img = Model.Content.Image;
                         if (img != null)
                         {
-                            <img src="@img.MediaUrl()" class="rounded img-fluid d-block mx-auto" alt="@img.Value("alt")" />
+                            <img src="@img.MediaUrl()" class="rounded img-fluid d-block mx-auto" alt="@(!string.IsNullOrEmpty(Model.Content.ImageAlt) ? Model.Content.ImageAlt : "")" />
                         }
                     }
                 </div>

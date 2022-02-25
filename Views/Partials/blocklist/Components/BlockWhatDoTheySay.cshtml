@@ -32,7 +32,7 @@
                                     var img = cardContent.Image;
                                     if (img != null)
                                     {
-                                        <i><img src="@img.MediaUrl()" alt="@img.Value("alt")"></i>
+                                        <i><img src="@img.MediaUrl()"  alt="@(!string.IsNullOrEmpty(cardContent.ImageAlt) ? cardContent.ImageAlt : "")"></i>
                                     }
                                 }
                                 @cardContent.Text
@@ -41,7 +41,7 @@
                                         img = cardContent.ProfilePicture;
                                         if (img != null)
                                         {
-                                            <i><img src="@img.MediaUrl()" alt="@img.Value("alt")"></i>
+                                            <i><img src="@img.MediaUrl()" alt="@(!string.IsNullOrEmpty(cardContent.ProfilePictureImageAlt) ? cardContent.ProfilePictureImageAlt : "")"></i>
                                         }
                                     }
                                 </div>

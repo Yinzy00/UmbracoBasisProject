@@ -3,9 +3,11 @@
 @using Umbraco.Cms.Core.Models
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-    var rootModel = (Model.AncestorOrSelf<HomePage>());
+    HomePage rootModel = (Model.AncestorOrSelf<HomePage>());
 }
-<header class="header-area header-sticky">
+@if (rootModel.Navbar.Count() != 0||rootModel.Logo != null)
+{
+    <header class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -16,7 +18,7 @@
                             var img = rootModel.Logo;
                             if (img != null)
                             {
-                                <img src="@img.MediaUrl()" alt="Softy Pinko" />
+                                <img src="@img.MediaUrl()" alt="@(!string.IsNullOrEmpty(rootModel.LogoImageAlt) ? rootModel.LogoImageAlt : "")" />
                             }
                         }
                     </a>
@@ -24,11 +26,13 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         @*@navBar*@
-                        @foreach (UmbNavItem item in (rootModel as HomePage).Navbar)
-                        {
-                            <li>
-                                <a href="@item.Url()">@item.Title</a>
-                            </li>
+                        @{
+                                foreach (UmbNavItem item in rootModel.Navbar)
+                                {
+                                    <li>
+                                        <a href="@item.Url()">@item.Title</a>
+                                    </li>
+                                }
                         }
                     </ul>
                     <a class='menu-trigger'>
@@ -40,3 +44,4 @@
         </div>
     </div>
 </header>
+}

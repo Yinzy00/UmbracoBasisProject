@@ -1,21 +1,4 @@
 ﻿@using Umbraco.Cms.Core.Models.Blocks;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem<BlockThreeCardsCard>>
-<div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
-    <div class="features-small-item">
-        <div class="icon" style="overflow:hidden;">
-            <i>
-                @{
-                    var typedMediaPickerSingle3 = Model.Content.Image;
-                    if (typedMediaPickerSingle3 != null)
-                    {
-                        <img src="@typedMediaPickerSingle3.MediaUrl()" style="width:100%;" alt="@typedMediaPickerSingle3.Value("alt")" />
-                    }
-                }
-            </i>
-        </div>
-        <h5 class="features-title">
-            @Model.Content.Title
-        </h5>
-        @Model.Content.Body
-    </div>
+
 </div>

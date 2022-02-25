@@ -15,10 +15,10 @@
                                     <div class="icon" style="overflow:hidden;">
                                         <i>
                                             @{
-                                                var typedMediaPickerSingle3 = blockContent.Image;
-                                                if (typedMediaPickerSingle3 != null)
+                                                var img = blockContent.Image;
+                                                if (img != null)
                                                 {
-                                                    <img src="@typedMediaPickerSingle3.MediaUrl()" style="max-width:100%;" alt="@typedMediaPickerSingle3.Value("alt")" />
+                                                    <img src="@img.MediaUrl()" style="max-width:100%;" alt="@(!string.IsNullOrEmpty(blockContent.ImageAlt) ? blockContent.ImageAlt : "")" />
                                                 }
                                             }
                                         </i>

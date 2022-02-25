@@ -53,9 +53,12 @@
                                     </ul>*@
                             </div>
                             <div class="pricing-footer">
-                                <a href="@link.Url" class="main-button">
-                                    @link.Name
-                                </a>
+                                @if (link != null)
+                                {
+                                    <a href="@link.Url" class="main-button">
+                                        @link.Name
+                                    </a>
+                                }
                             </div>
                         </div>
                     </div>

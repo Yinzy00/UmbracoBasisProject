@@ -13,9 +13,11 @@
                         @Model.Content.Title
                     </h1>                    
                     @Model.Content.Body
-                    <a href="@link.Url" class="main-button-slider">
+                    @if(link!=null){
+                        <a href="@link.Url" class="main-button-slider">
                         @link.Name
                     </a>
+                    }
                 </div>
             </div>
         </div>

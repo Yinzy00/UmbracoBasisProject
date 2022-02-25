@@ -16,30 +16,33 @@
             </div>
             <div class="row">
                 @{
-                    var colLg = ((12 / Model.Content.Cards.Count()) >= 2 ? "col-lg-" + (12 / Model.Content.Cards.Count()).ToString() : "col-lg-2");
-                    var colMd = ((12 / Model.Content.Cards.Count()) >= 3 ? "col-md-" + (12 / Model.Content.Cards.Count()).ToString() : "col-md-3");
-                    var colsm = ((12 / Model.Content.Cards.Count()) >= 6 ? "col-sm-" + (12 / Model.Content.Cards.Count()).ToString() : "col-sm-6");
-                    var col = ((12 / Model.Content.Cards.Count()) >= 6 ? "col-" + (12 / Model.Content.Cards.Count()).ToString() : "col-6");
-                    foreach (var card in Model.Content.Cards)
+                    if (Model.Content.Cards != null && Model.Content.Cards.Count() != 0)
                     {
-                        var cardContent = (BlockWorkProcessCard)card.Content;
-                        <div class="@colLg @colMd @colsm @col">
-                            <a href="#" class="mini-box">
-                                @{
-                                    var img = cardContent.Image;
-                                    if (img != null)
-                                    {
-                                        <img src="@img.MediaUrl()" class="rounded img-fluid d-block mx-auto" />
+                        var colLg = ((12 / Model.Content.Cards.Count()) >= 2 ? "col-lg-" + (12 / Model.Content.Cards.Count()).ToString() : "col-lg-2");
+                        var colMd = ((12 / Model.Content.Cards.Count()) >= 3 ? "col-md-" + (12 / Model.Content.Cards.Count()).ToString() : "col-md-3");
+                        var colsm = ((12 / Model.Content.Cards.Count()) >= 6 ? "col-sm-" + (12 / Model.Content.Cards.Count()).ToString() : "col-sm-6");
+                        var col = ((12 / Model.Content.Cards.Count()) >= 6 ? "col-" + (12 / Model.Content.Cards.Count()).ToString() : "col-6");
+                        foreach (var card in Model.Content.Cards)
+                        {
+                            var cardContent = (BlockWorkProcessCard)card.Content;
+                            <div class="@colLg @colMd @colsm @col">
+                                <a href="#" class="mini-box">
+                                    @{
+                                        var img = cardContent.Image;
+                                        if (img != null)
+                                        {
+                                            <img src="@img.MediaUrl()" class="rounded img-fluid d-block mx-auto" alt="@(!string.IsNullOrEmpty(cardContent.ImageAlt) ? cardContent.ImageAlt : "")"/>
+                                        }
                                     }
-                                }
-                                <strong>
-                                    @cardContent.Title
-                                </strong>
-                                <span>
-                                    @cardContent.Body
-                                </span>
-                            </a>
-                        </div>
+                                    <strong>
+                                        @cardContent.Title
+                                    </strong>
+                                    <span>
+                                        @cardContent.Body
+                                    </span>
+                                </a>
+                            </div>
+                        }
                     }
                 }
             </div>

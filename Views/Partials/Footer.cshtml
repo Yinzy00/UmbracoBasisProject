@@ -1,22 +1,39 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     var rootModel = (Model.AncestorOrSelf<HomePage>());
+    var facebookUrl = (rootModel.LinkFacebook != null ? (!string.IsNullOrEmpty(rootModel.LinkFacebook.Url) ? rootModel.LinkFacebook.Url.ToString() : "#") : null);
+    var twitterUrl = (rootModel.LinkTwitter != null ? (!string.IsNullOrEmpty(@rootModel.LinkTwitter.Url) ? @rootModel.LinkTwitter.Url : "#") : null);
+    var linkedInurl = (rootModel.LinkLinkedin != null ? (!string.IsNullOrEmpty(@rootModel.LinkLinkedin.Url) ? @rootModel.LinkLinkedin.Url : "#") : null);
 }
-<footer>
+@if(facebookUrl != null || twitterUrl != null || linkedInurl!= null || !string.IsNullOrEmpty(rootModel.FooterText.ToString()))
+{
+ <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <ul class="social">
-                    <li><a href="@(!string.IsNullOrEmpty(rootModel.LinkFacebook.Url.ToString()) ? rootModel.LinkFacebook.Url.ToString() : "#")"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="@(!string.IsNullOrEmpty(@rootModel.LinkTwitter.Url) ? @rootModel.LinkTwitter.Url : "#")"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="@(!string.IsNullOrEmpty(@rootModel.LinkLinkedin.Url) ? @rootModel.LinkLinkedin.Url : "#")"><i class="fa fa-linkedin"></i></a></li>
+                    @{
+                        if (facebookUrl != null)
+                        {
+                            <li><a href="@facebookUrl"><i class="fa fa-facebook"></i></a></li>
+                        }
+                        if (twitterUrl!= null)
+                        {
+                            <li><a href="@twitterUrl"><i class="fa fa-twitter"></i></a></li>
+                        }
+                        if (linkedInurl!=null)
+                        {
+                            <li><a href="@linkedInurl"><i class="fa fa-linkedin"></i></a></li>
+                        }
+                    }
                 </ul>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 pt-4 pb-4">
-                    @((rootModel.FooterText != null || rootModel.FooterText.ToString() != "") ? rootModel.FooterText  : "Copyright &copy; 2020 Softy Pinko Company - Design: TemplateMo")
+                @((rootModel.FooterText != null || rootModel.FooterText.ToString() != "") ? rootModel.FooterText  : "Copyright &copy; 2020 Softy Pinko Company - Design: TemplateMo")
             </div>
         </div>
     </div>
-</footer>
+</footer>   
+}
