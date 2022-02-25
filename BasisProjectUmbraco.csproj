@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Limbo.Umbraco.Seo" Version="2.0.0-alpha001" />
         <PackageReference Include="MailKit" Version="3.1.1" />
         <PackageReference Include="Our.Umbraco.UmbNav.Web" Version="1.0.7" />
         <PackageReference Include="Umbraco.Cms" Version="9.3.0" />
