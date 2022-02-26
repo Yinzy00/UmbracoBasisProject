@@ -5,43 +5,59 @@
 @{
     HomePage rootModel = (Model.AncestorOrSelf<HomePage>());
 }
-@if (rootModel.Navbar.Count() != 0||rootModel.Logo != null)
+@if (rootModel.Navbar.Count() != 0 || rootModel.Logo != null)
 {
     <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
                     <a href="#" class="logo">
-                        @{
-                            var img = rootModel.Logo;
-                            if (img != null)
-                            {
-                                <img src="@img.MediaUrl()" alt="@(!string.IsNullOrEmpty(rootModel.LogoImageAlt) ? rootModel.LogoImageAlt : "")" />
+                            @{
+                                var img = rootModel.Logo;
+                                if (img != null)
+                                {
+                                    <img src="@img.MediaUrl()" alt="@(!string.IsNullOrEmpty(rootModel.LogoImageAlt) ? rootModel.LogoImageAlt : "")" />
+                                }
                             }
-                        }
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        @*@navBar*@
-                        @{
+                            @*@navBar*@
+                            @{
                                 foreach (UmbNavItem item in rootModel.Navbar)
                                 {
                                     <li>
-                                        <a href="@item.Url()">@item.Title</a>
+                                        <a class="nav-item" href="@item.Url()">@item.Title</a>
                                     </li>
                                 }
-                        }
-                    </ul>
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
+                            }
+                            @{
+                                if (rootModel.LanguageMenu)
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding:0px!important;">
+                                        @System.Threading.Thread.CurrentThread.CurrentCulture.DisplayName
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            @foreach (var culture in rootModel.Cultures)
+                                            {
+                                                <a class="dropdown-item" href="?culture=@culture.Key">@culture.Key</a>
+                                            }
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
                 </nav>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 }
