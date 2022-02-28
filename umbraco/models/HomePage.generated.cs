@@ -137,7 +137,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.SEO.GetPageTitle(this, _publishedValueFallback);
 
 		///<summary>
-		/// seoMetaDescription
+		/// Meta Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

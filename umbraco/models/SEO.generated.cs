@@ -32,7 +32,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		string PageTitle { get; }
 
-		/// <summary>seoMetaDescription</summary>
+		/// <summary>Meta Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		string SeoMetaDescription { get; }
@@ -109,14 +109,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public static string GetPageTitle(ISEO that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "pageTitle");
 
 		///<summary>
-		/// seoMetaDescription
+		/// Meta Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("seoMetaDescription")]
 		public virtual string SeoMetaDescription => GetSeoMetaDescription(this, _publishedValueFallback);
 
-		/// <summary>Static getter for seoMetaDescription</summary>
+		/// <summary>Static getter for Meta Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public static string GetSeoMetaDescription(ISEO that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "seoMetaDescription");
