@@ -1,0 +1,20 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.BlogPost>
+@using BasisProjectUmbraco.ViewModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+	var img = Model.Image;
+}
+
+<div class="container mb-5" style="margin-top:150px">
+	<h1 class="mb-3">
+		@Model.Title
+	</h1>
+		<div class="mb-3">
+			<img src="@img.MediaUrl()" alt="@Model.ImageAlt" />
+		</div>
+		<div>
+			@Model.Body
+		</div>
+</div>
