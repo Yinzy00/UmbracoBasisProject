@@ -13,7 +13,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                    <a href="#" class="logo">
+                    <a href="@rootModel.Url()" class="logo">
                             @{
                                 var img = rootModel.Logo;
                                 if (img != null)
@@ -35,16 +35,16 @@
                                 }
                             }
                             @{
-                                if (rootModel.LanguageMenu)
+                                if (rootModel.Cultures.Count > 1)
                                 {
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding:0px!important;">
-                                        @System.Threading.Thread.CurrentThread.CurrentCulture.DisplayName
+                                          @System.Threading.Thread.CurrentThread.CurrentCulture.DisplayName
                                         </a>
                                         <div class="dropdown-menu">
                                             @foreach (var culture in rootModel.Cultures)
                                             {
-                                                <a class="dropdown-item" href="?culture=@culture.Key">@culture.Key</a>
+                                                <a class="dropdown-item" href="../@culture.Key">@culture.Key</a>
                                             }
                                         </div>
                                     </li>
