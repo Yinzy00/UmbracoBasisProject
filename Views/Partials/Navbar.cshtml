@@ -1,6 +1,8 @@
-﻿@using UmbNav.Core.Extensions
+﻿@using NetVips
+@using UmbNav.Core.Extensions
 @using UmbNav.Core.Models
 @using Umbraco.Cms.Core.Models
+@using Umbraco.Core;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     HomePage rootModel = (Model.AncestorOrSelf<HomePage>());
@@ -42,9 +44,10 @@
                                           @System.Threading.Thread.CurrentThread.CurrentCulture.DisplayName
                                         </a>
                                         <div class="dropdown-menu">
-                                            @foreach (var culture in rootModel.Cultures)
+                                            @foreach (var culture in Model.Cultures)
                                             {
-                                                <a class="dropdown-item" href="../@culture.Key">@culture.Key</a>
+                                                var Url = Model.Url(culture.Key.Split('-')[0] + "-" + culture.Key.Split('-')[1].ToUpper());
+                                                <a class="dropdown-item" href="@Url">@culture.Key</a>
                                             }
                                         </div>
                                     </li>
