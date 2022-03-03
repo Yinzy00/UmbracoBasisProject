@@ -34,22 +34,17 @@
                                     </li>
                                 }
                             }
-                            @{
-                                if (rootModel.LanguageMenu)
-                                {
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding:0px!important;">
-                                        @System.Threading.Thread.CurrentThread.CurrentCulture.DisplayName
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            @foreach (var culture in rootModel.Cultures)
-                                            {
-                                                <a class="dropdown-item" href="?culture=@culture.Key">@culture.Key</a>
-                                            }
-                                        </div>
-                                    </li>
-                                }
-                            }
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="padding:0px!important;">
+                                    @System.Threading.Thread.CurrentThread.CurrentCulture.DisplayName
+                                </a>
+                                <div class="dropdown-menu">
+                                    @foreach (var culture in rootModel.Cultures)
+                                    {
+                                        <a class="dropdown-item" href="?culture=@culture.Key">@culture.Key</a>
+                                    }
+                                </div>
+                            </li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>

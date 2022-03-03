@@ -1,0 +1,8 @@
+﻿{
+    "sections": [
+        {
+            "alias": "myCustomSection",
+            "name": "My Custom Section"
+        }
+    ]
+}

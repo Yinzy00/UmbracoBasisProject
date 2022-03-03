@@ -66,13 +66,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FooterText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "footerText");
 
 		///<summary>
-		/// Language Menu: Show language menu
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
-		[ImplementPropertyType("languageMenu")]
-		public virtual bool LanguageMenu => this.Value<bool>(_publishedValueFallback, "languageMenu");
-
-		///<summary>
 		/// Link Facebook
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
@@ -111,6 +104,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("logoImageAlt")]
 		public virtual string LogoImageAlt => this.Value<string>(_publishedValueFallback, "logoImageAlt");
+
+		///<summary>
+		/// Meta tags
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaTags")]
+		public virtual object MetaTags => this.Value(_publishedValueFallback, "metaTags");
 
 		///<summary>
 		/// Navigatie
