@@ -1,0 +1,54 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Blog>
+@using BasisProjectUmbraco.ViewModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+<div class="container mb-5" style="margin-top:150px">
+
+    
+@{
+	var posts = Model.ChildrenOfType("blogPost");
+	var cols = 3;
+	var rows = posts.Count() / cols;
+	rows = (rows == 0 && posts.Count() > 0 ? rows = 1 : rows = rows);
+	var teller = 0;
+	for (var row = 0; row < rows; row++)
+	{
+		<div class="row">
+		@for (var col = 0; col < cols; col++)
+			{
+				<div class="col-md-4 col-sm-12">
+					@{
+						BlogPost post = null;
+						try
+						{
+							post = (BlogPost)posts.ToList()[teller];
+                        }
+                        catch (Exception e) { }
+                    }
+                    <div>
+                        @if (post != null)
+                        {
+                            <div class="card" style="width: 18rem; margin:auto;">
+							@{
+								var img = post.Image;
+							}
+                                <img style="height:200px; object-fit:cover;"  class="card-img-top" src="@img.MediaUrl()" alt="@post.ImageAlt">
+                                <div class="card-body">
+                                    <h5 class="card-title">@post.Title</h5>
+                                    <a href="@post.Url()" class="btn btn-primary">
+									@Umbraco.GetDictionaryValue("DISCOVER MORE")
+									</a>
+                                </div>
+                            </div>
+						}
+					</div>
+			</div>
+			teller++;
+		}
+		</div>
+	}
+}
+</div>

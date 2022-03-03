@@ -15,7 +15,8 @@
                     @Model.Content.Body
                     @if(link!=null){
                         <a href="@link.Url" class="main-button-slider">
-                        @link.Name
+                        @*@link.Name*@
+                        @Umbraco.GetDictionaryValue("DISCOVER MORE")
                     </a>
                     }
                 </div>

@@ -1,6 +1,8 @@
-﻿@using UmbNav.Core.Extensions
+﻿@using NetVips
+@using UmbNav.Core.Extensions
 @using UmbNav.Core.Models
 @using Umbraco.Cms.Core.Models
+@using Umbraco.Core;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     HomePage rootModel = (Model.AncestorOrSelf<HomePage>());
@@ -13,7 +15,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                    <a href="#" class="logo">
+                    <a href="@rootModel.Url()" class="logo">
                             @{
                                 var img = rootModel.Logo;
                                 if (img != null)
