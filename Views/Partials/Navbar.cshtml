@@ -47,7 +47,7 @@
                                             @foreach (var culture in Model.Cultures)
                                             {
                                                 var Url = Model.Url(culture.Key.Split('-')[0] + "-" + culture.Key.Split('-')[1].ToUpper());
-                                                <a class="dropdown-item" href="@Url">@culture.Key</a>
+                                                <a class="dropdown-item" href="@Url">@culture.Key</a> 
                                             }
                                         </div>
                                     </li>
