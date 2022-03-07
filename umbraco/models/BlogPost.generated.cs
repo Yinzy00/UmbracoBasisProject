@@ -74,6 +74,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ImageAlt => this.Value<string>(_publishedValueFallback, "imageAlt");
 
 		///<summary>
+		/// Posted
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
+		[ImplementPropertyType("posted")]
+		public virtual global::System.DateTime Posted => this.Value<global::System.DateTime>(_publishedValueFallback, "posted");
+
+		///<summary>
 		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.3.0+eea02137ae0b709861b45ded11882279a990c421")]
