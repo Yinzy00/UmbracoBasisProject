@@ -15,7 +15,7 @@ using Umbraco.Extensions;
 
 namespace BasisProjectUmbraco.Controllers
 {
-    [Tree("myCustomSection", "myCustomSection", TreeTitle = "My Custom Section", TreeGroup = "customSectionGroup", SortOrder = 5)]
+    [Tree("myCustomSection", "myCustomSection", TreeTitle = "Panden", TreeGroup = "customSectionGroup", SortOrder = 5)]
     [PluginController("myCustomSection")]
     public class CustomSectionTreeController : TreeController
     {
@@ -60,12 +60,12 @@ namespace BasisProjectUmbraco.Controllers
             {
                 // you can get your custom nodes from anywhere, and they can represent anything...
                 Dictionary<int, string> favouriteThings = new Dictionary<int, string>();
-                favouriteThings.Add(1, "Raindrops on Roses");
-                favouriteThings.Add(2, "Whiskers on Kittens");
-                favouriteThings.Add(3, "Skys full of Stars");
-                favouriteThings.Add(4, "Warm Woolen Mittens");
-                favouriteThings.Add(5, "Cream coloured Unicorns");
-                favouriteThings.Add(6, "Schnitzel with Noodles");
+                favouriteThings.Add(1, "Create");
+                //favouriteThings.Add(2, "Whiskers on Kittens");
+                //favouriteThings.Add(3, "Skys full of Stars");
+                //favouriteThings.Add(4, "Warm Woolen Mittens");
+                //favouriteThings.Add(5, "Cream coloured Unicorns");
+                //favouriteThings.Add(6, "Schnitzel with Noodles");
 
                 // loop through our favourite things and create a tree item for each one
                 foreach (var thing in favouriteThings)

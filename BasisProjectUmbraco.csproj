@@ -6,11 +6,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Include="App_Plugins\MyCustomSection\MySectionDbHandler.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Content Include="App_Plugins\Limbo.Umbraco.Seo\Styles\Styles.css" />
       <Content Include="App_Plugins\Limbo.Umbraco.Seo\Views\Preview.html" />
       <Content Include="App_Plugins\Limbo.Umbraco.Seo\Views\SitemapChangeFrequency.html" />
       <Content Include="App_Plugins\Limbo.Umbraco.Seo\Views\SitemapPriority.html" />
       <Content Include="App_Plugins\MyCustomSection\backoffice\myCustomSection\delete.html" />
+      <Content Include="App_Plugins\MyCustomSection\backoffice\myCustomSection\edit.html" />
       <Content Include="App_Plugins\MyCustomSection\lang\en-us.xml" />
       <Content Include="App_Plugins\MyCustomSection\lang\nl-be.xml" />
       <Content Include="App_Plugins\MyMetaTags\css\MetaTags.css" />
@@ -26,7 +31,9 @@
       <None Include="App_Plugins\Limbo.Umbraco.Seo\Scripts\Controllers\Preview.js" />
       <None Include="App_Plugins\Limbo.Umbraco.Seo\Scripts\Controllers\SitemapChangeFrequency.js" />
       <None Include="App_Plugins\Limbo.Umbraco.Seo\Scripts\Controllers\SitemapPriority.js" />
-      <None Include="App_Plugins\MyCustomSection\backoffice\myCustomSection\edit.html" />
+      <None Include="App_Plugins\MyCustomSection\backoffice\myCustomSection\js\DeleteController.js" />
+      <None Include="App_Plugins\MyCustomSection\backoffice\myCustomSection\js\EditController.js" />
+      <None Include="App_Plugins\MyCustomSection\js\script.js" />
       <None Include="App_Plugins\MyCustomSection\package.manifest" />
       <None Include="App_Plugins\MyMetaTags\js\MetaTagsPluginController.js" />
       <None Include="App_Plugins\MyMetaTags\package.manifest" />
