@@ -26,20 +26,43 @@
     <link rel="stylesheet" href="/css/templatemo-softy-pinko.css">
 
     @{
-        if (!string.IsNullOrEmpty(rootModel.PageTitle))
+        if (Model.Value("PageTitle") != null && !string.IsNullOrEmpty(Model.Value("PageTitle").ToString()))
         {
             <title>
-                @rootModel.PageTitle
+                @Model.Value("PageTitle").ToString()
             </title>
         }
-        if (!string.IsNullOrEmpty(rootModel.SeoMetaDescription))
+        else
         {
-            <meta name="description" content="@rootModel.SeoMetaDescription" />
+            if (!string.IsNullOrEmpty(rootModel.PageTitle))
+            {
+                <title>
+                    @rootModel.PageTitle
+                </title>
+            }
         }
-        if (!string.IsNullOrEmpty(rootModel.KeywordsMetaTag))
+        if (Model.Value("SeoMetaDescription") != null && !string.IsNullOrEmpty(Model.Value("SeoMetaDescription").ToString()))
         {
-            <meta name="keywords" content="@rootModel.KeywordsMetaTag" />
+            <meta name="description" content="@Model.Value("SeoMetaDescription").ToString()" />
         }
+        if (Model.Value("KeywordsMetaTag") != null && !string.IsNullOrEmpty(Model.Value("KeywordsMetaTag").ToString()))
+        {
+            <meta name="keywords" content="@Model.Value("KeywordsMetaTag").ToString()" />
+        }
+        //if (!string.IsNullOrEmpty(rootModel.PageTitle))
+        //{
+        //    <title>
+        //        @rootModel.PageTitle
+        //    </title>
+        //}
+        //if (!string.IsNullOrEmpty(rootModel.SeoMetaDescription))
+        //{
+        //    <meta name="description" content="@rootModel.SeoMetaDescription" />
+        //}
+        //if (!string.IsNullOrEmpty(rootModel.KeywordsMetaTag))
+        //{
+        //    <meta name="keywords" content="@rootModel.KeywordsMetaTag" />
+        //}
     }
 
 </head>
