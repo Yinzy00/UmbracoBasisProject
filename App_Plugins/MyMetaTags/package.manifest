@@ -1,16 +1,20 @@
 ﻿{
-    "propertyEditors": [
-        {
-            "alias": "MetaTag",
-            "name": "Meta tags",
-            "icon": "icon-list",
-            "group": "MyMetaTags",
-            "editor": {
-                "view": "~/App_Plugins/MyMetaTags/views/MetaTags.html"
-            }
-        }
-    ],
-    "css": [
-        "~/App_Plugins/MyMetaTags/css/MetaTags.css"
-    ]
+  "propertyEditors": [
+    {
+      "alias": "MetaTag",
+      "name": "MetaTags",
+      "icon": "icon-list",
+      "group": "Common",
+      "editor": {
+        "view": "~/App_Plugins/MyMetaTags/views/MetaTags.html",
+        "valueType": "JSON"
+      }
+    }
+  ],
+  "css": [
+    "~/App_Plugins/MyMetaTags/css/MetaTags.css"
+  ],
+  "javascript": [
+    "~/App_Plugins/MyMetaTags/js/MetaTagsPluginController.js"
+  ]
 }

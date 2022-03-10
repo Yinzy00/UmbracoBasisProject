@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="MetaTags" ng-controller="MetaTagsPluginController">
+        <table>
+            <tr>
+                <td>
+                    <input type="checkbox" id="cbNoFollowMeta" ng-model="model.value.noFollow" />
+                    <label for="cbNoFollowMeta">
+                        Nofollow meta tag
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="cbNoIndexMeta" ng-model="model.value.noIndex"/>
+                    <label for="cbNoIndexMeta">
+                        NoIndex meta tag
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
