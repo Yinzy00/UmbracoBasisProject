@@ -45,7 +45,6 @@
                                     {
                                         var key = (culture.Key.Contains("-") ? (culture.Key.Split('-')[0] + "-" + culture.Key.Split('-')[1].ToUpper()) : culture.Key);
                                         var url = Model.Url(key);
-                                        Console.WriteLine(key);
                                         <a class="dropdown-item" href="@url">@culture.Key</a>
                                     }
                                 </div>
