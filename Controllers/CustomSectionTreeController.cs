@@ -1,11 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BasisProjectUmbraco.models;
+using BasisProjectUmbraco.NotificationHandler;
+using BasisProjectUmbraco.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NPoco;
 using System;
 using System.Collections.Generic;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Actions;
 using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Models.Trees;
+using Umbraco.Cms.Core.Scoping;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Trees;
 using Umbraco.Cms.Web.BackOffice.Trees;
@@ -15,18 +20,20 @@ using Umbraco.Extensions;
 
 namespace BasisProjectUmbraco.Controllers
 {
-    [Tree("myCustomSection", "myCustomSection", TreeTitle = "My Custom Section", TreeGroup = "customSectionGroup", SortOrder = 5)]
+    [Tree("myCustomSection", "myCustomSection", TreeTitle = "Panden", TreeGroup = "customSectionGroup", SortOrder = 5)]
     [PluginController("myCustomSection")]
     public class CustomSectionTreeController : TreeController
     {
+        IScopeProvider _scopeProvider;
         IMenuItemCollectionFactory _menuItemCollectionFactory;
         public CustomSectionTreeController(ILocalizedTextService localizedTextService,
             UmbracoApiControllerTypeCollection umbracoApiControllerTypeCollection,
             IMenuItemCollectionFactory menuItemCollectionFactory,
-            IEventAggregator eventAggregator)
+            IEventAggregator eventAggregator, IScopeProvider scopeProvider)
             : base(localizedTextService, umbracoApiControllerTypeCollection, eventAggregator)
         {
             _menuItemCollectionFactory = menuItemCollectionFactory ?? throw new ArgumentNullException(nameof(menuItemCollectionFactory));
+            _scopeProvider = scopeProvider;
         }
 
         protected override ActionResult<MenuItemCollection> GetMenuForNode(string id, [ModelBinder(typeof(HttpQueryStringModelBinder))] FormCollection queryStrings)
@@ -55,30 +62,28 @@ namespace BasisProjectUmbraco.Controllers
         {
             var nodes = new TreeNodeCollection();
 
-            // check if we're rendering the root node's children
             if (id == Constants.System.Root.ToInvariantString())
             {
-                // you can get your custom nodes from anywhere, and they can represent anything...
-                Dictionary<int, string> favouriteThings = new Dictionary<int, string>();
-                favouriteThings.Add(1, "Raindrops on Roses");
-                favouriteThings.Add(2, "Whiskers on Kittens");
-                favouriteThings.Add(3, "Skys full of Stars");
-                favouriteThings.Add(4, "Warm Woolen Mittens");
-                favouriteThings.Add(5, "Cream coloured Unicorns");
-                favouriteThings.Add(6, "Schnitzel with Noodles");
-
-                // loop through our favourite things and create a tree item for each one
-                foreach (var thing in favouriteThings)
+                Dictionary<int, string> sectionParts = new Dictionary<int, string>();
+                sectionParts.Add(0, "Create");
+                var parts = GetAllPartss();
+                for (int i = 0; i < parts.Count; i++)
                 {
-                    // add each node to the tree collection using the base CreateTreeNode method
-                    // it has several overloads, using here unique Id of tree item,
-                    // -1 is the Id of the parent node to create, eg the root of this tree is -1 by convention
-                    // - the querystring collection passed into this route
-                    // - the name of the tree node
-                    // - css class of icon to display for the node
-                    // - and whether the item has child nodes
-                    var node = CreateTreeNode(thing.Key.ToString(), "-1", queryStrings, thing.Value, "icon-presentation", false);
-                    nodes.Add(node);
+                    var part = parts[i];
+                    sectionParts.Add(part.Id, part.Title);
+                }
+                foreach (var part in sectionParts)
+                {
+                    if (part.Key == 0)
+                    {
+                        var node = CreateTreeNode(part.Key.ToString(), "-1", queryStrings, part.Value, "icon-hearts", false);
+                        nodes.Add(node);
+                    }
+                    else
+                    {
+                        var node = CreateTreeNode(part.Key.ToString(), "-1", queryStrings, part.Value, "icon-presentation", false);
+                        nodes.Add(node);
+                    }
                 }
             }
             return nodes;
@@ -92,15 +97,22 @@ namespace BasisProjectUmbraco.Controllers
             }
 
             var root = rootResult.Value;
-
-            // set the icon
             root.Icon = "icon-hearts";
-            // could be set to false for a custom tree with a single node.
             root.HasChildren = true;
-            //url for menu
             root.MenuUrl = null;
 
             return root;
         }
+
+        public List<CustomSectionPart> GetAllPartss()
+        {
+            using (var scope = _scopeProvider.CreateScope(autoComplete: true))
+            {
+                var database = scope.Database;
+                var query = new Sql().Select("*").From("MyCustomSectionParts");
+                return database.Fetch<CustomSectionPart>(query);
+            }
+        }
+
     }
 }

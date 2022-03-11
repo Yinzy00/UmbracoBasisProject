@@ -1,10 +1,9 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-    Delete
-</body>
-</html>
+﻿<div class="umb-dialog umb-pane" ng-controller="MyCustomSectionDeleteController">
+    <div class="umb-dialog-body">
+        <p class="umb-abstract">
+            Are you sure you want to delete this favourite thing: <strong>{{currentNode.name}}</strong> ?
+        </p>
+        <umb-confirm on-confirm="performDelete" on-cancel="cancel">
+        </umb-confirm>
+    </div>
+</div>
