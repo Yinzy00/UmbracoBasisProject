@@ -1,4 +1,5 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using BasisProjectUmbraco.models
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     Layout = null;
@@ -31,15 +32,6 @@
             <title>
                 @Model.Value("PageTitle").ToString()
             </title>
-        }
-        else
-        {
-            if (!string.IsNullOrEmpty(rootModel.PageTitle))
-            {
-                <title>
-                    @rootModel.PageTitle
-                </title>
-            }
         }
         if (Model.Value("SeoMetaDescription") != null && !string.IsNullOrEmpty(Model.Value("SeoMetaDescription").ToString()))
         {
@@ -81,6 +73,35 @@
     <!-- ***** Header Area End ***** -->
     @*CONTENT*@
 
+
+    @if (Model.Value("MetaTags") != null)
+        {
+            Console.WriteLine("META TAGS NOT NULL");
+            Console.WriteLine(Model.Value("MetaTags"));
+            @try
+            {
+                var metaTags = (Model.Value("MetaTags") as MetaTagsDataType);
+            <div>
+                @{
+                    object x = Model.Value("MetaTags");
+                    MetaTagsDataType a = (x as MetaTagsDataType);
+                    Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(x));
+                    var abc = x.TryConvertTo<MetaTagsDataType>();
+
+                    Console.WriteLine(metaTags.noFollow.ToString());
+                    metaTags.noFollow.ToString();
+                }
+                </div>
+                <div>
+                @metaTags.noIndex.ToString()
+                </div>
+            }
+        catch (Exception) { }
+    }
+    else
+    {
+        Console.WriteLine("META TAGS == NULL");
+    }
     @RenderBody()
 
     @*END CONTENT*@
