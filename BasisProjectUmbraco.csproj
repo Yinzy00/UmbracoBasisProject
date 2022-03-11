@@ -6,10 +6,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Include="App_Plugins\MyCustomSection\MySectionDbHandler.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Content Include="App_Plugins\Limbo.Umbraco.Seo\Styles\Styles.css" />
       <Content Include="App_Plugins\Limbo.Umbraco.Seo\Views\Preview.html" />
       <Content Include="App_Plugins\Limbo.Umbraco.Seo\Views\SitemapChangeFrequency.html" />
@@ -56,6 +52,9 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
         <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Data\" />
     </ItemGroup>
 
 

@@ -1,5 +1,27 @@
 ﻿<div ng-controller="MyCustomSectionEditController">
-
-    
-
+    <div>
+        <table style="border:0px;">
+            <tr>
+                <td>
+                    Title
+                </td>
+                <td>
+                    <input ng-model="model.Title" type="text" id="Title" name="Title" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Description
+                </td>
+                <td>
+                    <textarea id="Description" name="Description" ng-model="model.Description"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" id="btSend" ng-click="send()" value="{{model.btnText}}" />
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
