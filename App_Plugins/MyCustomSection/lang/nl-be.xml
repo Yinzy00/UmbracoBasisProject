@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="nl" intName="Nederlands (BE)" localName="Nederlands (BE)" lcid="" culture="nl-BE">
+	<area alias="sections">
+		<key alias="myCustomSection">Mijn Custom Sectie</key>
+	</area>
+</language>

@@ -6,6 +6,38 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Content Include="App_Plugins\Limbo.Umbraco.Seo\Styles\Styles.css" />
+      <Content Include="App_Plugins\Limbo.Umbraco.Seo\Views\Preview.html" />
+      <Content Include="App_Plugins\Limbo.Umbraco.Seo\Views\SitemapChangeFrequency.html" />
+      <Content Include="App_Plugins\Limbo.Umbraco.Seo\Views\SitemapPriority.html" />
+      <Content Include="App_Plugins\MyCustomSection\backoffice\myCustomSection\delete.html" />
+      <Content Include="App_Plugins\MyCustomSection\lang\en-us.xml" />
+      <Content Include="App_Plugins\MyCustomSection\lang\nl-be.xml" />
+      <Content Include="App_Plugins\MyMetaTags\css\MetaTags.css" />
+      <Content Include="App_Plugins\MyMetaTags\views\MetaTags.html" />
+      <Content Include="App_Plugins\UmbNav\css\editor.css" />
+      <Content Include="App_Plugins\UmbNav\lang\en-us.xml" />
+      <Content Include="App_Plugins\UmbNav\views\editor.html" />
+      <Content Include="App_Plugins\UmbNav\views\settings.html" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="App_Plugins\Limbo.Umbraco.Seo\package.manifest" />
+      <None Include="App_Plugins\Limbo.Umbraco.Seo\Scripts\Controllers\Preview.js" />
+      <None Include="App_Plugins\Limbo.Umbraco.Seo\Scripts\Controllers\SitemapChangeFrequency.js" />
+      <None Include="App_Plugins\Limbo.Umbraco.Seo\Scripts\Controllers\SitemapPriority.js" />
+      <None Include="App_Plugins\MyCustomSection\backoffice\myCustomSection\edit.html" />
+      <None Include="App_Plugins\MyCustomSection\package.manifest" />
+      <None Include="App_Plugins\MyMetaTags\js\MetaTagsPluginController.js" />
+      <None Include="App_Plugins\MyMetaTags\package.manifest" />
+      <None Include="App_Plugins\UmbNav\js\angular-ui-tree.js" />
+      <None Include="App_Plugins\UmbNav\js\umbnav.controller.js" />
+      <None Include="App_Plugins\UmbNav\js\umbnav.resource.js" />
+      <None Include="App_Plugins\UmbNav\js\umbnav.settings.controller.js" />
+      <None Include="App_Plugins\UmbNav\package.manifest" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Limbo.Umbraco.Seo" Version="2.0.0-alpha001" />
         <PackageReference Include="MailKit" Version="3.1.1" />
         <PackageReference Include="NetVips" Version="2.1.0" />
