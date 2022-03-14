@@ -1,4 +1,5 @@
 ﻿@using BasisProjectUmbraco.models
+@using Newtonsoft.Json.Linq
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
@@ -41,20 +42,22 @@
         {
             <meta name="keywords" content="@Model.Value("KeywordsMetaTag").ToString()" />
         }
-        //if (!string.IsNullOrEmpty(rootModel.PageTitle))
-        //{
-        //    <title>
-        //        @rootModel.PageTitle
-        //    </title>
-        //}
-        //if (!string.IsNullOrEmpty(rootModel.SeoMetaDescription))
-        //{
-        //    <meta name="description" content="@rootModel.SeoMetaDescription" />
-        //}
-        //if (!string.IsNullOrEmpty(rootModel.KeywordsMetaTag))
-        //{
-        //    <meta name="keywords" content="@rootModel.KeywordsMetaTag" />
-        //}
+        @if (Model.Value("MetaTags") != null)
+        {
+            Console.WriteLine("META TAGS NOT NULL");
+            Console.WriteLine(Model.Value("MetaTags"));
+            @try
+            {
+                JObject jobj = (JObject)Model.Value("MetaTags");
+                var metaTags = jobj.ToObject<MetaTagsDataType>();
+                //PRINT HTML META TAGS
+            }
+            catch (Exception) { }
+        }
+        else
+        {
+            Console.WriteLine("META TAGS == NULL");
+        }
     }
 
 </head>
@@ -74,34 +77,6 @@
     @*CONTENT*@
 
 
-    @if (Model.Value("MetaTags") != null)
-        {
-            Console.WriteLine("META TAGS NOT NULL");
-            Console.WriteLine(Model.Value("MetaTags"));
-            @try
-            {
-                var metaTags = (Model.Value("MetaTags") as MetaTagsDataType);
-            <div>
-                @{
-                    object x = Model.Value("MetaTags");
-                    MetaTagsDataType a = (x as MetaTagsDataType);
-                    Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(x));
-                    var abc = x.TryConvertTo<MetaTagsDataType>();
-
-                    Console.WriteLine(metaTags.noFollow.ToString());
-                    metaTags.noFollow.ToString();
-                }
-                </div>
-                <div>
-                @metaTags.noIndex.ToString()
-                </div>
-            }
-        catch (Exception) { }
-    }
-    else
-    {
-        Console.WriteLine("META TAGS == NULL");
-    }
     @RenderBody()
 
     @*END CONTENT*@
