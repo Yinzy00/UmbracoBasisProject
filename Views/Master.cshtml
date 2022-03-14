@@ -44,8 +44,6 @@
         }
         @if (Model.Value("MetaTags") != null)
         {
-            Console.WriteLine("META TAGS NOT NULL");
-            Console.WriteLine(Model.Value("MetaTags"));
             @try
             {
                 JObject jobj = (JObject)Model.Value("MetaTags");
@@ -53,10 +51,6 @@
                 //PRINT HTML META TAGS
             }
             catch (Exception) { }
-        }
-        else
-        {
-            Console.WriteLine("META TAGS == NULL");
         }
     }
 
