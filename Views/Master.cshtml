@@ -48,7 +48,10 @@
             {
                 JObject jobj = (JObject)Model.Value("MetaTags");
                 var metaTags = jobj.ToObject<MetaTagsDataType>();
-                //PRINT HTML META TAGS
+                if (metaTags.noIndex)
+                {
+                    <meta name="robots" content="noindex">
+                }
             }
             catch (Exception) { }
         }
