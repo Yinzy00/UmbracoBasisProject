@@ -26,7 +26,7 @@
         });
     }
     $scope.send = function () {
-        alert($scope.model.Title + "\n" + $scope.model.Description);
+        //alert($scope.model.Title + "\n" + $scope.model.Description);
         console.log($scope.create);
         if ($scope.create) {
             $http.post('/CustomSection/Create', JSON.stringify($scope.model)).then(function () {
